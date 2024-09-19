@@ -12,8 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+    
 
     <style>
+        
         #container {
             --target: 100%;
             background: linear-gradient(to right, #000 var(--target), #fff var(--target));
@@ -31,20 +33,25 @@
             -webkit-text-fill-color: transparent;
         }
         body {
-    overflow-x: hidden;
-}
+            overflow-x: hidden;
+        }
 
-#con, #container {
-    max-width: 100vw; /* Pastikan lebar elemen tidak melebihi viewport */
-    overflow: hidden;
-}
+        #con, #container {
+            max-width: 100vw; /* Pastikan lebar elemen tidak melebihi viewport */
+            overflow: hidden;
+        }
 
     </style>
 
 </head>
-    <body class="p-0 m-0">
+<body class="p-0 m-0">
+        <x-navbar/>
+        
         <div id="con" class="w-screen h-screen flex justify-center items-center">
-            <h1 id="there" class="text-4xl sm:text-6xl text-white">Hi There</h1>
+           <a href="#"> <p id="logo" class=" text-black absolute text-5xl sm:text-8xl top-14 left-10 sm:top-60 sm:left-72 font-bodoni font-semibold -z-10 ">K'</p></a>
+            {{-- <img src="{{ asset('kaamilah.png') }}" alt="Logo" class="w-24 absolute top-28 left-12 bg-black rounded-md"> --}}
+            <h1 id="there" class="text-4xl sm:text-6xl text-white ">Hi There</h1>
+            <a href="#kon" class="text-white">asdsad</a>
             
             <div id="kotak-putih" class="w-72 h-40 md:w-[50vh] md:h-[25vh] sm:w-[100vh] sm:h-[50vh] -z-10 overflow-hidden rounded-xl bg-black absolute">
                 <div id="bar" class="w-6 h-3 sm:w-10 sm:h-5 rounded-full bg-white mt-2 ml-2">
@@ -62,8 +69,7 @@
         </div>
     
         <!-- Spacer to allow scrolling effect -->
-        <div class="w-screen h-[150vh] bg-gray-200"></div>
-    
+        <div id="kon" class="w-screen h-[150vh] bg-gray-200"></div>
     
     
         <!-- Particles Container -->
@@ -90,117 +96,153 @@
         <div class="h-96"></div> --}}
         
         <script>
-        console.clear();
-        gsap.config({ trialWarn: false });
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.to("#container", {
-        "--target": "0%",
-        ease: "none",
-        scrollTrigger: {
-            trigger: "#container",
-            // markers: {
-            // startColor: "yellow",
-            // endColor: "#42a6e0",
-            // fontSize: "14px"
-            // },
-            start: "top top",
-            end: "+=2000",
-            pin: true,
-            scrub: 1
-        }
-        });
-
-        gsap.to('#con', {
-            // ease: 'power4',
-            scrollTrigger:{
-                trigger:'#con',
-                markers:true,
-                start: 'top top',
-                end:'+=1000',
-                pin: '#there',
-                scrub: 1,
-                // pinType: 'transform',
-            },
-            // scale:3,
-            y:300,
-            // opacity:0,
-        })
-
-        gsap.to('#kotak-putih',{
-            // rotate:180,
-            y:200,
-            scale:3,
-            // ease: 'back.inOut(1.7)',
-            scrollTrigger :{
-                // rotate: '#kotak-putih',
-                scrub:2,
+            console.clear();
+            gsap.config({ trialWarn: false });
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to("#container", {
+            "--target": "0%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#container",
+                // markers: {
+                // startColor: "yellow",
+                // endColor: "#42a6e0",
+                // fontSize: "14px"
+                // },
+                start: "top top",
+                end: "+=2000",
+                pin: true,
+                scrub: 1
             }
-        })
+            });
 
-        let mm = gsap.matchMedia();
+            gsap.to('#logo', {
+                scrollTrigger:{
+                    trigger:'#logo',
+                    scrub:2.5,
+                    start:'top top',
+                    end:'+=1000',
+                },
+                y:800,
+                rotate:30,
+            })
 
-        mm.add("(min-width: 800px)", () => {
-            gsap.to('#bar', {
-            scrollTrigger:{
-                trigger:'#bar',
-                start: 'top top',
-                end: '+=50',
-                // markers:true,
-                scrub:2,
-            },
-            y:300,
-        })
+            gsap.from('#logo',{
+                y:250,
+                rotate:20,
+                duration:1.5, 
+            })
 
-        gsap.to('#titik', {
-            scrollTrigger:{
-                trigger:'#titik',
-                start: 'top top',
-                end: 'bottom center',
-                // markers:true,
-                scrub:2,
-            },
-            x:20,
-        })
-        });
+            gsap.to('#con', {
+                // ease: 'power4',
+                scrollTrigger:{
+                    trigger:'#con',
+                    markers:true,
+                    start: 'top top',
+                    end:'+=1000',
+                    pin: '#there',
+                    scrub: 2,
+                    pinType: 'transform',
+                },
+                // scale:3,
+                y:300,
+                // opacity:0,
+            })
 
-        mm.add("(max-width: 799px)", () => {
-            gsap.to('#bar', {
-            scrollTrigger:{
-                trigger:'#bar',
-                start: 'top top',
-                end: '+=50',
-                // markers:true,
-                scrub:2,
-            },
-            y:125,
-        })
+            gsap.from('#con',{
+                y:100,
+                duration:1,
+                ease:'power2.inOut'
+            })
 
-        gsap.to('#titik', {
-            scrollTrigger:{
-                trigger:'#titik',
-                start: 'top top',
-                end: 'bottom center',
-                // markers:true,
-                scrub:2,
-            },
-            x:20,
-        })
-        });
+            gsap.from('#there',{
+                y:200,
+                duration:1,
+                opacity:0,
+            })
+            
+            gsap.to('#kotak-putih',{
+                // rotate:180,
+                y:200,
+                scale:3,
+                // ease: 'back.inOut(1.7)',
+                scrollTrigger :{
+                    // rotate: '#kotak-putih',
+                    scrub:2,
+                }
+            })
+            
+            gsap.from('#kotak-putih',{
+                y:200,
+                scale:3,
+                duration:.9,
+            })
+
+
+            let mm = gsap.matchMedia();
+
+                mm.add("(min-width: 800px)", () => {
+                    gsap.to('#bar', {
+                    scrollTrigger:{
+                        trigger:'#bar',
+                        start: 'top top',
+                        end: '+=50',
+                        // markers:true,
+                        scrub:2,
+                    },
+                    y:300,
+                })
+
+                gsap.to('#titik', {
+                    scrollTrigger:{
+                        trigger:'#titik',
+                        start: 'top top',
+                        end: 'bottom center',
+                        // markers:true,
+                        scrub:2,
+                    },
+                    x:20,
+                })
+                });
+
+                mm.add("(max-width: 799px)", () => {
+                    gsap.to('#bar', {
+                    scrollTrigger:{
+                        trigger:'#bar',
+                        start: 'top top',
+                        end: '+=50',
+                        // markers:true,
+                        scrub:2,
+                    },
+                    y:125,
+                })
+
+            gsap.to('#titik', {
+                scrollTrigger:{
+                    trigger:'#titik',
+                    start: 'top top',
+                    end: 'bottom center',
+                    // markers:true,
+                    scrub:2,
+                },
+                x:10,
+            })
+            });
 
 
 
-        const lenis = new Lenis()
+            const lenis = new Lenis()
 
-        lenis.on('scroll', (e) => {
-        console.log(e)
-        })
+            lenis.on('scroll', (e) => {
+            console.log(e)
+            })
 
-        function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-        }
+            function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+            }
 
-        requestAnimationFrame(raf)
+            requestAnimationFrame(raf)
 
         </script>
 </body>

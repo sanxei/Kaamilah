@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       fontFamily:{
-        whisper: ['Whisper', 'cursive']
+        whisper: ['Whisper', 'cursive'],
+        bodoni: ['"Libre Bodoni"', 'serif'],
       }
     },
   },
