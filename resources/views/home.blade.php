@@ -9,13 +9,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    {{-- Font --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
-        
         #container {
             --target: 100%;
             background: linear-gradient(to right, #000 var(--target), #fff var(--target));
@@ -51,7 +52,6 @@
            <a href="#"> <p id="logo" class=" text-black absolute text-5xl sm:text-8xl top-14 left-10 sm:top-60 sm:left-72 font-bodoni font-semibold -z-10 ">K'</p></a>
             {{-- <img src="{{ asset('kaamilah.png') }}" alt="Logo" class="w-24 absolute top-28 left-12 bg-black rounded-md"> --}}
             <h1 id="there" class="text-4xl sm:text-6xl text-white ">Hi There</h1>
-            <a href="#kon" class="text-white">asdsad</a>
             
             <div id="kotak-putih" class="w-72 h-40 md:w-[50vh] md:h-[25vh] sm:w-[100vh] sm:h-[50vh] -z-10 overflow-hidden rounded-xl bg-black absolute">
                 <div id="bar" class="w-6 h-3 sm:w-10 sm:h-5 rounded-full bg-white mt-2 ml-2">
@@ -61,7 +61,7 @@
             <h1 class="bottom-24 sm:bottom-36 overflow-hidden absolute">Scroll Down</h1>
             <x-ri-arrow-down-wide-line class=" w-9 sm:w-10 bottom-16 sm:bottom-28 overflow-hidden absolute"/>
         </div>
-        <div id="container" class="w-screen h-screen flex justify-center items-center ">
+        <div id="container" class="w-screen h-screen flex justify-center items-center z-10">
             <h1 id="title" class="text-4xl sm:text-6xl md:text-[8vw] lg:text-6xl text-center leading-none tracking-tighter">
                 We Are
             </h1>
@@ -69,8 +69,50 @@
         </div>
     
         <!-- Spacer to allow scrolling effect -->
-        <div id="kon" class="w-screen h-[150vh] bg-gray-200"></div>
-    
+        <div class="w-screen h-[130vh] bg-slate-100 flex flex-1 justify-center text-black relative">
+        {{-- <div>
+
+            <div>
+                <div id="about" class="w-32 h-14 sm:w-56 sm:h-16 rounded-full bg-black mt-5 flex items-center relative justify-center -top-32 left-10">
+                    <p class="text-xl sm:text-2xl font-serif    ">About Us</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-10">
+
+                <div id="card-abt-1" class="w-72 h-56  sm:w-[500px] sm:h-44 bg-white relative left-[100px] top-52 rounded-2xl text-black ">
+                    <div class="w-3 h-3 ml-3 top-3 absolute bg-red-400 rounded-full "></div>
+                    <div class="w-3 h-3 ml-7 top-3 absolute bg-yellow-400 rounded-full "></div>
+                    <div class="w-3 h-3 ml-11 top-3 absolute bg-green-400 rounded-full "></div>
+                    <p class="p-10"> <strong>Lorem </strong>ipsum dolor sit amet consectetur, adipisicing elit. Consectetur officiis adipisci incidunt perspiciatis sequi similique necessitatibus praesentium eligendi inventore alias.</p>
+                </div>
+
+                <div id="card-abt-2" class="w-72 h-72 sm:w-[500px] sm:h-44 bg-white relative top-52 right-24 rounded-2xl text-black ">
+                    <div class="w-3 h-3 ml-3 top-3 absolute bg-red-400 rounded-full "></div>
+                    <div class="w-3 h-3 ml-7 top-3 absolute bg-yellow-400 rounded-full "></div>
+                    <div class="w-3 h-3 ml-11 top-3 absolute bg-green-400 rounded-full "></div>
+                    <p class="p-10"> <strong>Lorem </strong>ipsum dolor sit amet consectetur, adipisicing elit. Consectetur officiis adipisci incidunt perspiciatis sequi similique necessitatibus praesentium eligendi inventore alias.</p>
+                </div>
+            </div>
+        </div> --}}
+        
+        <div class="top-32 left-16 sm:left-[500px] absolute">
+            <h1 class="text-4xl sm:text-5xl font-bodoni">About Us</h1>
+        </div>
+
+        <div data-aos="fade-left"
+             data-aos-easing="ease-in-out"
+             data-aos-anchor-placement="center-bottom"
+             data-aos-duration="1000"
+         class="w-72 sm:w-[1100px] text-xl top-56 sm:top-[350px] left-[30%] absolute font-raleway flex flex-col gap-11">
+            <p class="text-xl font-medium sm:text-4xl"><strong class="text-4xl">Welcome to Ka'amilah </strong>– your trusted solution for efficient and professional radiator repair. We are a service company dedicated to helping your vehicle perform at its best by providing optimal radiator maintenance and repair.</p>
+            <h1><strong>Who Are We?</strong></h1>
+        </div>
+
+        </div>
+
+        <div class="w-screen h-[100vh] bg-gray-800 flex justify-center text-white">
+        </div>
     
         <!-- Particles Container -->
         {{-- <div class="bg-emerald-800 h-screen relative ">            <div id="particles-js"></div>
@@ -95,7 +137,10 @@
         </div>
         <div class="h-96"></div> --}}
         
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
         <script>
+            AOS.init();
             console.clear();
             gsap.config({ trialWarn: false });
             gsap.registerPlugin(ScrollTrigger);
@@ -137,7 +182,7 @@
                 // ease: 'power4',
                 scrollTrigger:{
                     trigger:'#con',
-                    markers:true,
+                    // markers:true,
                     start: 'top top',
                     end:'+=1000',
                     pin: '#there',
@@ -203,6 +248,17 @@
                     },
                     x:20,
                 })
+
+                gsap.to('#card-abt-1', {
+                scrollTrigger:{
+                    trigger:'#card-abt-1',
+                    scrub:1,
+                    start:'top center',
+                    end: 'bottom center',
+                },
+                x:-900,
+            })
+
                 });
 
                 mm.add("(max-width: 799px)", () => {
@@ -227,22 +283,43 @@
                 },
                 x:10,
             })
-            });
 
+            gsap.to('#card-abt-1', {
+                scrollTrigger:{
+                    trigger:'#card-abt-1',
+                    scrub:1,
+                    start:'top center',
+                    end: 'bottom center',
+                },
+                x:-200,
+            })
+        });
 
+            gsap.to('#about', {
+                scrollTrigger:{
+                    trigger:'#about',
+                    scrub:1,
+                    start:'center center',
+                    end:'bottom center',
+                },
+                pin:'#about',
+                y:200,
+            })
+
+            
 
             const lenis = new Lenis()
 
-            lenis.on('scroll', (e) => {
-            console.log(e)
-            })
+                lenis.on('scroll', (e) => {
+                console.log(e)
+                })
 
-            function raf(time) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
-            }
+                function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+                }
 
-            requestAnimationFrame(raf)
+                requestAnimationFrame(raf)
 
         </script>
 </body>
